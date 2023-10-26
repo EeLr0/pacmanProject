@@ -1,6 +1,6 @@
 First open error in tkinter, solution instal python3 tk (sudo apt-get install python3-tk) solution from stackoverflow - https://stackoverflow.com/questions/25905540/importerror-no-module-named-tkinter
 
-   one of the trys in q1 im a trash for not find a simple way to do this exercise so read all and well dont be like me
+   one of the trys in q1 im a trash for not find a simple way to do this exercise so read all and well dont be like me. Be pathient you will find many errors
    stack = util.Stack()
     visited = []
     path = []
@@ -22,3 +22,20 @@ First open error in tkinter, solution instal python3 tk (sudo apt-get install py
         
     return path
     
+    q1 sol:
+    stack = util.Stack()
+    visited = set()
+    stack.push((problem.getStartState(), []))
+    while not stack.isEmpty():
+        state, action1 = stack.pop()
+        if problem.isGoalState(state):
+            return action1
+        visited.add(state)
+        for state2, action, _ in problem.getSuccessors(state):
+            if state2 not in visited:
+                new = action1 + [action]
+                stack.push((state2, new))
+        
+    return []
+    
+    using a stack and a set(visited) the code will push the initial state to the stack and while the stack is not empty the code performe the next steps: or problem we have a vertex with three values state action and cost, the dfs dont use cost so we need only state and action and we will asign the values of the vertex in stack(the first will be the initial state), next we will verify if the state is the goal we will return the action, next the state will be added to the visited set now we use a for to see the next state and action in the problem.getSucessors of the actual state if the new state not in visited we use this code new = action1 + [action] to concatonate the new action to the list of the initial action and push the new state and action to the stack
