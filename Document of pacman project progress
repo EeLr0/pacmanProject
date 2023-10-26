@@ -1,0 +1,24 @@
+First open error in tkinter, solution instal python3 tk (sudo apt-get install python3-tk) solution from stackoverflow - https://stackoverflow.com/questions/25905540/importerror-no-module-named-tkinter
+
+   one of the trys in q1 im a trash for not find a simple way to do this exercise so read all and well dont be like me
+   stack = util.Stack()
+    visited = []
+    path = []
+    visited = [*visited, problem.getStartState]
+    stack.push(problem.getStartState)
+    i = 0
+    while not stack.isEmpty:
+        if problem.isGoalState(problem.getStartState):
+            return
+        path = [*path, stack.pop()]
+        child = problem.getSuccessors(path[i])
+        if child not in visited and problem.getSuccessors(child) != None:
+            visited = [*visited, child.]
+            path = [*path, child]
+            stack.push(child)
+            i+=1
+        elif child not in visited and problem.getSuccessors(child) == None:
+            visited = [*visited, child]
+        
+    return path
+    
